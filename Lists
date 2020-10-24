@@ -1,0 +1,114 @@
+#### Lists
+# ordered, mutable, and allows duplicates
+# Can have multiple data types in same list, such as [2, True, 'apple']
+# can have duplicate elements as well
+# indexes start at 0. First item is mylist[0], last item is mylist[-1]
+
+mylist = ['banana','cherry','apple']
+print(mylist)
+
+# create an empty list
+mylist2 = list() 
+
+# iterate through items in list
+for i in mylist: 
+  print(i)
+
+# check if item is in a list
+if 'grape' in mylist:
+  print('in list')
+else:
+  print('not in list')
+
+# print number of items in list
+print(len(mylist))
+
+# add an item to end of the list
+mylist.append('lemon')
+print(mylist)
+
+# insert an item in a specific position
+mylist.insert(1, 'blueberry') # adds blueberry as second item in list
+print(mylist)
+
+# remove last item from list, and store that item
+item = mylist.pop()
+print(item)
+print(mylist)
+
+# change an item in a list, by index
+# mylist[0] = 3 # changes first item to integer of 3.
+
+# remove a particular item explicitly
+mylist.remove('cherry')
+print(mylist)
+
+# copy a list. Can't just say newlist = oldlist. Changing newlist will also change oldlist.
+mylist2 = mylist.copy() # can also do this: mylist2 = list(mylist), or this: mylist2 = mylist[:]
+
+# lists - enumerate, for iterating over one list
+names = ['Corey', 'Chris', 'Dave', 'Travis']
+for index, name in enumerate(names, start = 0): # first element is assigned index of 0; default setting.
+  print(index, name)
+for index, name in enumerate(names, start = 1): # first element is assigned index of 1
+  print(index, name)
+
+# lists - Zip, for iterating over multiple lists
+# if lists are different lengths, it stops at end of shortest list
+supernames = ['Peter Parker', 'Clark Kent', 'Wade Wilson', 'Bruce Wayne']
+superheroes = ['Spiderman', 'Superman', 'Deadpool', 'Batman']
+universes = ['Marvel', 'DC', 'Marvel', 'DC']
+for supername, superhero, universe in zip(supernames, superheroes, universes):
+  print(f'{supername} is actually {superhero} from {universe}')
+  
+# or, just print out the tuples
+for value in zip(supernames, superheroes, universes):
+  print(value)
+
+# remove all elements in a list (clear the list)
+mylist2.clear()
+print(mylist2)
+
+# reverse order items in a list
+mylist.reverse()
+print(mylist)
+
+# sort list in ascending order
+mylist3 = [4, -7, 9, -2, 0]
+print(mylist3)
+mylist3.sort() # this sorts a list in place. For descending: mylist3.sort(reverse=True)
+
+print(mylist3)
+
+# make a new list by sorting an existing one, without modifying original
+mylist4 = [2, -11, 3, -6, 1]
+mylist5 = sorted(mylist4) # for descending order: sorted(mylist4, reverse = True)
+print(mylist4)
+print(mylist5)
+
+# new list with duplicate elements. Ex: 7, 7, 7, 7.
+mylist7 = [7] * 4 # for strings, ['hello'] * 4
+print(mylist7)
+
+# combine lists, adding one to the end of another.
+mylist8 = [5, 4, 3, 2, 1]
+mylistcombo = mylist7 + mylist8
+print(mylistcombo)
+
+# get slice of list, items 1 through 4
+mylist9 = [0, 1, 2, 3, 4, 5, 6, 7]
+mylist10 = mylist9[1:5] # to start from beginning, use mylist9[:5]. To go to end: mylist9[1:]
+print(mylist10)
+
+# get slice of list, using a step of n (every n item)
+mylist11 = mylist9[1:6:2] # select items 1 through 5, taking every second item.
+print(mylist11)
+mylist12 = mylist9[::2] # select all items, taking every second item
+print(mylist12)
+mylist13 = mylist9[::1] # select all items, step of one (this just selects every item)
+mylist14 = mylist9[::-1] # reverse list by selecting all items, step of -1
+print(mylist14)
+
+# list comprehension: copy and modify a list in one line
+mylist15 = [i*i for i in mylist9]
+print(mylist15)
